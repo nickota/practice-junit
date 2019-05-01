@@ -16,37 +16,37 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Enclosed.class)
 public class ArrayListEnclosedTest {
-
-    public static class listに1件追加してある場合 {
-        private ArrayList<String> sut;
-
-        @Before
-        public void setUp() throws Exception {
-            sut = new ArrayList<String>();
-            sut.add("A");
-        }
-
-        @Test
-        public void sizeは1を返す() throws Exception {
-            int actual = sut.size();
-            assertThat(actual, is(1));
-        }
-    }
-
-    public static class listに2件追加してある場合 {
-        private ArrayList<String> sut;
-
-        @Before
-        public void setUp() throws Exception {
-            sut = new ArrayList<String>();
-            sut.add("A");
-            sut.add("B");
-        }
-
-        @Test
-        public void sizeは2を返す() throws Exception {
-            int actual = sut.size();
-            assertThat(actual, is(2));
-        }
-    }
+	private ArrayList<String> sut;
+	
+	public class listに1件ある場合 {
+		
+		@Before
+		public void setUp() throws Exception{
+			sut = new ArrayList<String>();
+			sut.add("A");
+		}
+		
+		@Test
+		public void sizeは1を返す() throws Exception{
+			assertThat(sut,is(notNullValue()));
+			assertThat(sut.size(), is(1));
+		}
+		
+	}
+	
+	public class listに2件ある場合 {
+		
+		@Before
+		public void setUp() throws Exception{
+			sut = new ArrayList<String>();
+			sut.add("A");
+			sut.add("B");
+		}
+		
+		@Test
+		public void sizeは2を返す() throws Exception{
+			assertThat(sut, is(notNullValue()));
+			assertThat(sut.size(),is(2));
+		}
+	}
 }
