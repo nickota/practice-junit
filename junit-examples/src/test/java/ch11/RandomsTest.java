@@ -13,37 +13,41 @@ import org.junit.Test;
  * @author shuji.w6e
  */
 public class RandomsTest {
-
-    @Test
-    public void choiceでAを返す() throws Exception {
-        List<String> options = new ArrayList<String>();
-        options.add("A");
-        options.add("B");
-        Randoms sut = new Randoms();
-        // スタブの設定
-        sut.generator = new RandomNumberGenerator() {
-            @Override
-            public int nextInt() {
-                return 0;
-            }
-        };
-        assertThat(sut.choice(options), is("A"));
-    }
-
-    @Test
-    public void choiceでBを返す() throws Exception {
-        List<String> options = new ArrayList<String>();
-        options.add("A");
-        options.add("B");
-        Randoms sut = new Randoms();
-        // スタブの設定
-        sut.generator = new RandomNumberGenerator() {
-            @Override
-            public int nextInt() {
-                return 1;
-            }
-        };
-        assertThat(sut.choice(options), is("B"));
-    }
+	@Test
+	public void choiceでAを返す() throws Exception{
+		
+		List<String> options = new ArrayList<String>();
+		options.add("A");
+		options.add("B");
+		
+		Randoms sut = new Randoms();
+		
+		sut.generator = new RandomNumberGenerator() {
+			@Override
+			public int nextInt() {
+				return 0;
+			}
+		};
+		assertThat(sut.choice(options), is("A"));
+		
+	}
+	@Test
+	public void choiceでBを返す() throws Exception{
+		
+		List<String> options = new ArrayList<String>();
+		options.add("A");
+		options.add("B");
+		
+		Randoms sut = new Randoms();
+		
+		sut.generator = new RandomNumberGenerator() {
+			@Override
+			public int nextInt() {
+				return 1;
+			}
+		};
+		assertThat(sut.choice(options), is("B"));
+		
+	}
 
 }
